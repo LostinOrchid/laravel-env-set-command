@@ -4,6 +4,7 @@ namespace ImLiam\EnvironmentSetCommand;
 
 use InvalidArgumentException;
 use Illuminate\Console\Command;
+use Illuminate\Support\Str;
 
 class EnvironmentSetCommand extends Command
 {
@@ -134,7 +135,7 @@ class EnvironmentSetCommand extends Command
      */
     protected function isValidKey(string $key): bool
     {
-        if (str_contains($key, '=')) {
+        if (Str::contains($key, '=')) {
             throw new InvalidArgumentException("Environment key should not contain '='");
         }
 
